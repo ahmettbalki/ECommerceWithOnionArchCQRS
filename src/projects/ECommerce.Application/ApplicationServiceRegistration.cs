@@ -16,7 +16,6 @@ public static class ApplicationServiceRegistration
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehavior<,>));
         services.AddValidatorsFromAssemblies([Assembly.GetExecutingAssembly()]);
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
         services.AddMediatR(con => {
             con.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
             con.AddOpenBehavior(typeof(RequestValidationBehavior<,>));
