@@ -1,1 +1,1 @@
-# ProjectTemplateCqrs-master
+# ECommerceWithOnionArchCQRS
