@@ -5,12 +5,11 @@ using ECommerce.Application.Services.Repositories;
 using ECommerce.Domain.Entities;
 using MediatR;
 namespace ECommerce.Application.Features.Categories.Commands.Create;
-public sealed class CategoryAddCommand : IRequest<CategoryAddedResponseDto>, ILoginRequest
+public sealed class CategoryAddCommand : IRequest<CategoryAddedResponseDto>
 {
     // Bir istek 500 ms den fazla bir sürede cevap verirse sisteme log atsın.
     // Sipariş verebilmesi için veya farklı durumlar için kullanıcının sisteme login olması beklenmektedir.
     public string Name { get; set; }
-
     public sealed class CategoryAddCommandHandler(
         IMapper _mapper, ICategoryRepository _categoryRepository, CategoryBusinessRules _businessRules
         )
@@ -19,7 +18,6 @@ public sealed class CategoryAddCommand : IRequest<CategoryAddedResponseDto>, ILo
     {
         public async Task<CategoryAddedResponseDto> Handle(CategoryAddCommand request, CancellationToken cancellationToken)
         {
-
             await _businessRules.CategoryNameMustBeUniqueAsync(request.Name, cancellationToken);
 
             Category category = _mapper.Map<Category>(request);

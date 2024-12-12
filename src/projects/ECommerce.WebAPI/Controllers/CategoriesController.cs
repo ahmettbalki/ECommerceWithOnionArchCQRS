@@ -5,6 +5,7 @@ using ECommerce.Application.Features.Categories.Queries.GetById;
 using ECommerce.Application.Features.Categories.Queries.GetList;
 using ECommerce.Application.Features.Categories.Queries.GetListByPaginate;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace ECommerce.WebAPI.Controllers;
 [Route("api/[controller]")]
@@ -16,7 +17,7 @@ public class CategoriesController : ControllerBase
     {
         _mediator = mediator;
     }
-
+    
     [HttpPost("create")]
     public async Task<IActionResult> Create([FromBody] CategoryAddCommand command)
     {

@@ -1,7 +1,5 @@
 ﻿using Serilog;
-
 namespace Core.CrossCuttingConcerns.Serilog.Loggers;
-
 public abstract class LoggerServiceBase
 {
     protected ILogger Logger { get; set; }
