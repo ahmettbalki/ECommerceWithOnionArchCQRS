@@ -1,1 +1,1 @@
-# ECommerceWithOnionArchCQRS
+# ECommerce-OnionArchCQRS
